@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Auto1 test task suite" verbose="1" >
+    <test name="Login tests" >
+        <classes>
+            <class name="ui_tests.LoginTests" />
+        </classes>
+    </test>
+
+    <test name="Registration tests" >
+        <classes>
+            <class name="ui_tests.RegistartionTests" />
+        </classes>
+    </test>
+</suite>
