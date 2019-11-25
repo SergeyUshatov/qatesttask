@@ -37,5 +37,10 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
         return driver;
     }
 
+    @Override
+    public String currentUrl() {
+        return driver.getCurrentUrl();
+    }
+
 
 }

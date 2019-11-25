@@ -6,4 +6,6 @@ public interface WebDriverOperations {
     void stop();
     void goTo(String url);
     WebDriver getDriver();
+
+    String currentUrl();
 }

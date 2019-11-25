@@ -68,4 +68,27 @@ public class WebElementOperationsImpl implements WebElementOperations {
         List<WebElement> webElementList = driver.findElements(By.xpath(locator));
         return webElementList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
+
+    @Override
+    public void clearInputAndEnterText(WebElement webElement, String text) {
+        webElement.clear();
+        webElement.sendKeys(text);
+    }
+
+    @Override
+    public void clickOn(WebElement webElement) {
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        webElement.click();
+    }
+
+    @Override
+    public boolean isElementPresent(WebElement webElement) {
+        return webElement.isDisplayed();
+    }
+
+    @Override
+    public boolean isElementWithTextPresent(String text) {
+        WebElement webElement = driver.findElement(By.xpath("//*[text()='" + text + "']"));
+        return isElementPresent(webElement);
+    }
 }
