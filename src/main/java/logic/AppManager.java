@@ -7,4 +7,8 @@ public interface AppManager {
     FbLoginOperations getFbLoginOperations();
 
     FbdeviceBasedLoginOperations getFbdeviceBasedLoginOperations();
+
+    FbMainOperations getFbMainOperations();
+
+    FbRegisterOperations getFbRegisterOperations();
 }

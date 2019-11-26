@@ -1,9 +1,6 @@
 package logic;
 
-import org.openqa.selenium.WebElement;
-
 import java.util.List;
-import java.util.regex.Pattern;
 
 public interface WebElementOperations {
     boolean click(String xpath);
@@ -12,11 +9,11 @@ public interface WebElementOperations {
 
     List<String> getTextListFromElementsList(String locator);
 
-    void clearInputAndEnterText(WebElement webElement, String text);
+    void clearInputAndEnterText(String xpath, String text);
 
-    void clickOn(WebElement webElement);
-
-    boolean isElementPresent(WebElement webElement);
+    boolean isElementPresent(String xpath);
 
     boolean isElementWithTextPresent(String text);
+
+    boolean selectValueByIndex(String xpath, int index);
 }

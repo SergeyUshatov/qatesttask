@@ -8,4 +8,6 @@ public interface WebDriverOperations {
     WebDriver getDriver();
 
     String currentUrl();
+
+    void start();
 }

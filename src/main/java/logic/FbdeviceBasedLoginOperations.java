@@ -5,7 +5,7 @@ public interface FbdeviceBasedLoginOperations {
 
     boolean isPasswordInputPresent();
 
-    boolean isInvalidEmailOrPhoneAlertPresent();
+    boolean isAlertPresent();
 
     boolean isLoginButtonPresent();
 }

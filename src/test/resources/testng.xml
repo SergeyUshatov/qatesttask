@@ -9,7 +9,7 @@
 
     <test name="Registration tests" >
         <classes>
-            <class name="ui_tests.RegistartionTests" />
+            <class name="ui_tests.RegistrationTests" />
         </classes>
     </test>
 </suite>

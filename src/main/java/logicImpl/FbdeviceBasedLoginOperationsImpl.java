@@ -19,8 +19,8 @@ public class FbdeviceBasedLoginOperationsImpl extends DriverBasedOperations impl
     }
 
     @Override
-    public boolean isInvalidEmailOrPhoneAlertPresent() {
-        return pages.getFbDeviceBasedLoginPage().isInvalidEmailOrPhoneAlertPresent();
+    public boolean isAlertPresent() {
+        return pages.getFbDeviceBasedLoginPage().isAlertPresent();
     }
 
     @Override

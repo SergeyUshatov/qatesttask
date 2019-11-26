@@ -29,7 +29,7 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
 
     @Override
     public void goTo(String url) {
-        driver.navigate().to(getBaseUrl() + url);
+        getDriver().navigate().to(getBaseUrl() + url);
     }
 
     @Override
@@ -39,7 +39,12 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
 
     @Override
     public String currentUrl() {
-        return driver.getCurrentUrl();
+        return getDriver().getCurrentUrl();
+    }
+
+    @Override
+    public void start() {
+        goTo("");
     }
 
 

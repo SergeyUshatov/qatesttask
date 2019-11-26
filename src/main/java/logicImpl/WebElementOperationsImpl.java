@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.FbLoginPage;
 
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class WebElementOperationsImpl implements WebElementOperations {
@@ -34,7 +33,7 @@ public class WebElementOperationsImpl implements WebElementOperations {
 
     WebElementOperationsImpl(AppManager appManager) {
         driver = appManager.getWebDriverOperations().getDriver();
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 30);
     }
 
     @Override
@@ -55,8 +54,23 @@ public class WebElementOperationsImpl implements WebElementOperations {
         try {
             WebElement element = byXpath(locator);
             Select select = new Select(element);
-            log.info("Selecting value=" + value + " element selection");
+            log.info("Selecting value = " + value + " element selection");
             select.selectByVisibleText(value);
+            return true;
+        } catch (Exception e) {
+            log.error(ERROR_ON_SELECTING_AN_ELEMENT + e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean selectValueByIndex(String xpath, int index) {
+        try {
+            WebElement element = byXpath(xpath);
+            Select select = new Select(element);
+            log.info("Selecting value = " + index + " element selection");
+            select.selectByIndex(index);
+            return true;
         } catch (Exception e) {
             log.error(ERROR_ON_SELECTING_AN_ELEMENT + e.getMessage());
         }
@@ -70,25 +84,22 @@ public class WebElementOperationsImpl implements WebElementOperations {
     }
 
     @Override
-    public void clearInputAndEnterText(WebElement webElement, String text) {
-        webElement.clear();
-        webElement.sendKeys(text);
+    public void clearInputAndEnterText(String xpath, String text) {
+        WebElement element = byXpath(xpath);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+        element.sendKeys(text);
     }
 
     @Override
-    public void clickOn(WebElement webElement) {
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
-        webElement.click();
-    }
-
-    @Override
-    public boolean isElementPresent(WebElement webElement) {
-        return webElement.isDisplayed();
+    public boolean isElementPresent(String xpath) {
+        WebElement element = byXpath(xpath);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        return element.isDisplayed();
     }
 
     @Override
     public boolean isElementWithTextPresent(String text) {
-        WebElement webElement = driver.findElement(By.xpath("//*[text()='" + text + "']"));
-        return isElementPresent(webElement);
+        return isElementPresent("//*[contains(text(), '" + text + "')]");
     }
 }

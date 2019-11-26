@@ -11,7 +11,14 @@ public class FbLoginOperationsImpl extends DriverBasedOperations implements FbLo
 
     @Override
     public void loginByEmailAs(FbUser fbUser) {
-        pages.getFbLoginPage().enterEmail(fbUser.getEmail());
+        pages.getFbLoginPage().enterEmailOrPhone(fbUser.getEmail());
+        pages.getFbLoginPage().enterPassword(fbUser.getPassword());
+        pages.getFbLoginPage().clickOnSignInButton();
+    }
+
+    @Override
+    public void loginByPhoneAs(FbUser fbUser) {
+        pages.getFbLoginPage().enterEmailOrPhone(fbUser.getPhoneNumber());
         pages.getFbLoginPage().enterPassword(fbUser.getPassword());
         pages.getFbLoginPage().clickOnSignInButton();
     }

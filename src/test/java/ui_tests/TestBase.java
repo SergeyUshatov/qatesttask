@@ -2,9 +2,7 @@ package ui_tests;
 
 import logic.AppManager;
 import logicImpl.AppManagerImpl;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 public abstract class TestBase {
     protected AppManager app;
@@ -16,12 +14,17 @@ public abstract class TestBase {
         }
     }
 
-    @BeforeClass
-    public void beforeClass(){
-        app.getWebDriverOperations().getDriver();
+    @BeforeTest
+    public void beforeTest(){
+        app.getWebDriverOperations().goTo("");
     }
 
-    @AfterClass
+    @BeforeMethod
+    public void beforeMethod(){
+        app.getWebDriverOperations().goTo("");
+    }
+
+    @AfterTest
     public void close(){
         app.getWebDriverOperations().stop();
     }

@@ -10,6 +10,8 @@ public class FbUser {
     private String lastName;
     private LocalDate birthDate;
     private Gender gender;
+    private GenderCustomPronoun genderCustomPronoun;
+    private String genderCustomOptional;
 
     public String getEmail() {
         return email;
@@ -72,5 +74,26 @@ public class FbUser {
     public FbUser setGender(Gender gender) {
         this.gender = gender;
         return this;
+    }
+
+    public GenderCustomPronoun getGenderCustomPronoun() {
+        return genderCustomPronoun;
+    }
+
+    public String getGenderCustomOptional() {
+        return genderCustomOptional;
+    }
+
+    public void setGenderCustomPronoun(GenderCustomPronoun genderCustomPronoun) {
+        this.genderCustomPronoun = genderCustomPronoun;
+    }
+
+    public void setGenderCustomOptional(String genderCustomOptional) {
+        this.genderCustomOptional = genderCustomOptional;
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }
