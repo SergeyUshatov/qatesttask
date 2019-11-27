@@ -13,6 +13,7 @@ public class AppManagerImpl implements AppManager {
     private FbdeviceBasedLoginOperations fbdeviceBasedLoginOperations;
     private FbMainOperations fbMainOperations;
     private FbRegisterOperations fbRegisterOperations;
+    private FbSettingsOperations fbSettingsOperations;
 
     public AppManagerImpl() {
         String value = PropertyLoader.loadProperty("log4j.config.file");
@@ -73,5 +74,13 @@ public class AppManagerImpl implements AppManager {
             fbRegisterOperations = new FbRegisterOperationsImpl(this);
         }
         return fbRegisterOperations;
+    }
+
+    @Override
+    public FbSettingsOperations getFbSettingsOperations() {
+        if (fbSettingsOperations == null) {
+            fbSettingsOperations = new FbSettingsOperationsImpl(this);
+        }
+        return fbSettingsOperations;
     }
 }

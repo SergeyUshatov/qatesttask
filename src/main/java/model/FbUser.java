@@ -94,6 +94,6 @@ public class FbUser {
 
     @Override
     public String toString() {
-        return "";
+        return firstName;
     }
 }

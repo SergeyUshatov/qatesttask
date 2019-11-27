@@ -4,16 +4,15 @@ import model.FbUser;
 import org.testng.annotations.Test;
 import utils.FbUserHelper;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class RegistrationTests extends TestBase {
 
     @Test
     public void registerNewUserHappyPath() {
         FbUser user = FbUserHelper.randomUser();
-        app.getFbRegisterOperations().fillForm(user);
-        app.getFbRegisterOperations().submitForm();
+        getApp().getFbRegisterOperations().fillForm(user);
+        getApp().getFbRegisterOperations().submitForm();
 
-//        todo add assertions
+        // todo add assertions that user has passed registration form, I just don't know what is the next step of registration
     }
+
 }

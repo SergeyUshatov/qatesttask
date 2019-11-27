@@ -10,7 +10,7 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
     private String baseUrl;
 
     WebDriverOperationsImpl() {
-        driver = WebDriverFactory.getInstance(PropertyLoader.loadProperty("browser.name"));
+        driver = getDriver();
         baseUrl = getBaseUrl();
     }
 
@@ -33,7 +33,10 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
     }
 
     @Override
-    public WebDriver getDriver() {
+    synchronized public WebDriver getDriver() {
+        if (driver == null) {
+            driver = WebDriverFactory.getInstance(PropertyLoader.loadProperty("browser.name"));
+        }
         return driver;
     }
 
@@ -44,7 +47,7 @@ public class WebDriverOperationsImpl implements WebDriverOperations {
 
     @Override
     public void start() {
-        goTo("");
+        getDriver();
     }
 
 

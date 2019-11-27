@@ -1,5 +1,5 @@
 package logic;
 
 public interface NavigationOperations {
-//    void openFbLofinPage();
+    void goToSettings();
 }

@@ -5,10 +5,8 @@ public interface AppManager {
     WebElementOperations getWebElementOperations();
     NavigationOperations getNavigationOperations();
     FbLoginOperations getFbLoginOperations();
-
     FbdeviceBasedLoginOperations getFbdeviceBasedLoginOperations();
-
     FbMainOperations getFbMainOperations();
-
     FbRegisterOperations getFbRegisterOperations();
+    FbSettingsOperations getFbSettingsOperations();
 }
