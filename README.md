@@ -39,6 +39,12 @@ Execution:
 6. select a birth date (Jan 1 1955) by selecting values from **birthday dropdowns**
 7. choose new user's gender (male) by clicking on a **gender value**
 8. click on **Sign Up** button
+9. enter confirmation code that is sent to specified email
+10. click on **Continue**
+
+Expected:
+1. New user is registered
+2. User is on the main FB page
 
 # A/T Populate FB register 
 here src/test/java/ui_tests/RegistrationTests.java
