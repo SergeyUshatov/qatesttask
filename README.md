@@ -40,7 +40,10 @@ Execution:
 7. choose new user's gender (male) by clicking on a **gender value**
 8. click on **Sign Up** button
 
-
+# A/T Populate FB register 
+here src/test/java/ui_tests/RegistrationTests.java
+# Test FB login validation for all CRUD
+here src/test/java/ui_tests/LoginTests.java
 
 
 
