@@ -12,6 +12,6 @@ public class FbSettingsOperationsImpl extends DriverBasedOperations implements F
     @Override
     public void updatePasswordWith(String newPassword) {
         // todo implement
-        throw new NotImplementedException();
+        return;
     }
 }

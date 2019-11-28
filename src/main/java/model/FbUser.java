@@ -84,16 +84,20 @@ public class FbUser {
         return genderCustomOptional;
     }
 
-    public void setGenderCustomPronoun(GenderCustomPronoun genderCustomPronoun) {
+    public FbUser setGenderCustomPronoun(GenderCustomPronoun genderCustomPronoun) {
         this.genderCustomPronoun = genderCustomPronoun;
+        return this;
     }
 
-    public void setGenderCustomOptional(String genderCustomOptional) {
+    public FbUser setGenderCustomOptional(String genderCustomOptional) {
         this.genderCustomOptional = genderCustomOptional;
+        return this;
     }
+
 
     @Override
     public String toString() {
-        return firstName;
+        // just to avoid a lot of information in test name when data providers are used
+        return "";
     }
 }

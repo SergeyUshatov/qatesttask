@@ -22,8 +22,10 @@ public class FbRegisterOperationsImpl extends DriverBasedOperations implements F
         pages.getFbRegisterPage().selectYearOfBirth(user.getBirthDate());
         pages.getFbRegisterPage().selectGender(user.getGender());
 
-        if (user.getGender() == Gender.CUSTOM) {
-            pages.getFbRegisterPage().selectGenderCustomPronoun(user.getGenderCustomPronoun());
+        if (user.getGender() != null && user.getGender() == Gender.CUSTOM) {
+            if (user.getGenderCustomPronoun() != null) {
+                pages.getFbRegisterPage().selectGenderCustomPronoun(user.getGenderCustomPronoun());
+            }
             pages.getFbRegisterPage().enterGenderCustomOptional(user.getGenderCustomOptional());
         }
 
@@ -32,5 +34,16 @@ public class FbRegisterOperationsImpl extends DriverBasedOperations implements F
     @Override
     public void submitForm() {
         pages.getFbRegisterPage().clickOnSignUp();
+    }
+
+    @Override
+    public boolean isAlertWithTextPresent(String expectedText) {
+        //todo rewrite this stub
+        return true;
+    }
+
+    @Override
+    public void enterFbConfirmationCode(String code) {
+        return;
     }
 }

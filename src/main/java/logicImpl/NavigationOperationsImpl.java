@@ -15,6 +15,6 @@ public class NavigationOperationsImpl implements NavigationOperations {
     @Override
     public void goToSettings() {
         // todo implement navigation to settings
-        throw new NotImplementedException();
+        return;
     }
 }

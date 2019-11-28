@@ -17,6 +17,6 @@ public class FbMainOperationsImpl extends DriverBasedOperations implements FbMai
     @Override
     public void logout() {
         // todo implement
-        throw new NotImplementedException();
+        return;
     }
 }
