@@ -4,6 +4,7 @@ import model.FbUser;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.Constants;
+import utils.FbUserHelper;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -12,7 +13,7 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginByEmailHappyPath() {
-        FbUser user = new FbUser().setEmail(Constants.EXISTING_USER_NAME).setPassword(Constants.VALID_PASSWORD);
+        FbUser user = FbUserHelper.randomUser();
         getApp().getFbLoginOperations().loginByEmailAs(user);
 
         assertThatUserIsLoggedIn();
@@ -20,7 +21,7 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginByPhoneHappyPath() {
-        FbUser user = new FbUser().setPhoneNumber(Constants.EXISTING_USER_NAME).setPassword(Constants.VALID_PASSWORD);
+        FbUser user = FbUserHelper.randomUser();
         getApp().getFbLoginOperations().loginByPhoneAs(user);
 
         assertThatUserIsLoggedIn();
